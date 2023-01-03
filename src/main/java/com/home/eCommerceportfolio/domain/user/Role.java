@@ -1,8 +1,8 @@
 package com.home.eCommerceportfolio.domain.user;
 
 public enum Role {
-    FREE_USER("FREE_USER"),
-    LOGIN_USER("LOGIN_USER");
+    ROLE_FREE_USER("ROLE_FREE_USER"),
+    ROLE_LOGIN_USER("LOGIN_USER");
 
     String role;
 
