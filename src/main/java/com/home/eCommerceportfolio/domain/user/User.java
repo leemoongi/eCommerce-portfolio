@@ -1,4 +1,4 @@
-package com.home.eCommerceportfolio.test;
+package com.home.eCommerceportfolio.domain.user;
 
 import lombok.Data;
 
@@ -9,7 +9,7 @@ import javax.persistence.Id;
 
 @Entity
 @Data
-public class Users {
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
