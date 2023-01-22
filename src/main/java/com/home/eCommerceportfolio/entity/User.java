@@ -5,12 +5,14 @@ import lombok.Data;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import java.time.LocalDateTime;
 
 import static javax.persistence.GenerationType.AUTO;
 
 @Entity
 @Data
+@Table(name = "users")
 public class User {
 
     @Id
