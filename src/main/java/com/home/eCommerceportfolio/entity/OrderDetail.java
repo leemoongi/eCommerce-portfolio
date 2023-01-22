@@ -2,10 +2,9 @@ package com.home.eCommerceportfolio.entity;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
+import static javax.persistence.FetchType.LAZY;
 import static javax.persistence.GenerationType.AUTO;
 
 @Entity
@@ -16,9 +15,11 @@ public class OrderDetail {
     @GeneratedValue(strategy = AUTO)
     private Long id;
 
-    private Long orderId;
+    @ManyToOne(fetch = LAZY)
+    private Order order;
 
-    private Long productId;
+    @ManyToOne(fetch = LAZY)
+    private Product product;
 
     private String productPrice;
 

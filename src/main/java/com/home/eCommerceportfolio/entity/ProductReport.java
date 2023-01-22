@@ -5,9 +5,11 @@ import lombok.Data;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 import java.time.LocalDateTime;
 
+import static javax.persistence.FetchType.LAZY;
 import static javax.persistence.GenerationType.AUTO;
 
 @Entity
@@ -18,7 +20,8 @@ public class ProductReport {
     @GeneratedValue(strategy = AUTO)
     private String id;
 
-    private Long productId;
+    @ManyToOne(fetch = LAZY)
+    private Product product;
 
     private String reason;
 

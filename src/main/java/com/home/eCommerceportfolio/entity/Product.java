@@ -2,11 +2,10 @@ package com.home.eCommerceportfolio.entity;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
+import static javax.persistence.FetchType.LAZY;
 import static javax.persistence.GenerationType.AUTO;
 
 @Entity
@@ -17,7 +16,9 @@ public class Product {
     @GeneratedValue(strategy = AUTO)
     private Long id;
 
-    private String categoryCode;
+    @ManyToOne(fetch = LAZY)
+    @JoinColumn(name = "categoryCode")
+    private ProductCategory categoryCode;
 
     private String name;
 

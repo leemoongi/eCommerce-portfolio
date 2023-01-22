@@ -5,7 +5,9 @@ import lombok.Data;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
+import static javax.persistence.FetchType.LAZY;
 import static javax.persistence.GenerationType.AUTO;
 
 @Entity
@@ -16,8 +18,10 @@ public class LikeMark {
     @GeneratedValue(strategy = AUTO)
     private Long id;
 
-    private Long productId;
+    @ManyToOne(fetch = LAZY)
+    private Product product;
 
-    private Long userId;
+    @ManyToOne(fetch = LAZY)
+    private User user;
 
 }

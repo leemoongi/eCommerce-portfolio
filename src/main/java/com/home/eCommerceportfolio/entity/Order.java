@@ -2,13 +2,11 @@ package com.home.eCommerceportfolio.entity;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 import java.time.LocalDateTime;
 
+import static javax.persistence.FetchType.LAZY;
 import static javax.persistence.GenerationType.AUTO;
 
 @Entity
@@ -20,7 +18,8 @@ public class Order {
     @GeneratedValue(strategy = AUTO)
     private Long id;
 
-    private Long userId;
+    @ManyToOne(fetch = LAZY)
+    private User user;
 
     private LocalDateTime creDate;
 

@@ -5,7 +5,9 @@ import lombok.Data;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
+import static javax.persistence.FetchType.LAZY;
 import static javax.persistence.GenerationType.AUTO;
 
 @Entity
@@ -16,9 +18,11 @@ public class UserCouponStatus {
     @GeneratedValue(strategy = AUTO)
     private Long id;
 
-    private Long couponId;
+    @ManyToOne(fetch = LAZY)
+    private Coupon coupon;
 
-    private Long userId;
+    @ManyToOne(fetch = LAZY)
+    private User user;
 
     private String status;
 

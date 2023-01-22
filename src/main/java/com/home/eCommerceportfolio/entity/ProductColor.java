@@ -5,7 +5,9 @@ import lombok.Data;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
+import static javax.persistence.FetchType.LAZY;
 import static javax.persistence.GenerationType.AUTO;
 
 @Entity
@@ -16,7 +18,8 @@ public class ProductColor {
     @GeneratedValue(strategy = AUTO)
     private String id;
 
-    private Long productId;
+    @ManyToOne(fetch = LAZY)
+    private Product product;
 
     private String color;
 
